@@ -1,0 +1,15 @@
+docker run -d -it --name testia2 ubuntu:16.04 sh -c 'echo "Inputwebsite:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+docker exec -it testia2 bash
+apt update
+apt install curl
+exit
+docker attach testia2
+helsinki.fi
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>

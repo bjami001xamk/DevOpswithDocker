@@ -1,0 +1,1 @@
+docker run -p 8000:8000 -v E:\DevOpsWithDocker\Part1\1.10\tempgit\testia\logs.txt:/logs.txt backend
