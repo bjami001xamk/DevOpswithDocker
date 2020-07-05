@@ -1,0 +1,35 @@
+version: '3.5'
+
+services:
+        mlfrontend:
+            image: mlfrontend
+            ports:
+                - 3000:3000
+            environment: 
+                - API_URL=http://localhost:8000
+
+        mlbackend:
+            image: mlbackend
+            restart: unless-stopped
+            ports:
+                - 5000:5000
+            environment: 
+                - FRONT_URL=http://localhost:5000
+                - REDIS=redis
+            depends_on:
+                - mltraining
+            volumes:
+                - model:/src/model
+        mltraining:
+            image: mltraining
+            #restart: always
+            volumes:
+                - images:/src/imgs
+                - model:/src/model
+
+
+volumes:
+    model:
+    images:
+                
+        
